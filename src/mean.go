@@ -13,9 +13,12 @@ func mean(a float64, b float64) float64 {
 
 func main() {
 	x, err := strconv.ParseFloat(os.Args[1], 64)
+	if err != nil {
+		fmt.Errorf("Valid command line arguments not provided")
+	}
 	y, err := strconv.ParseFloat(os.Args[2], 64)
 	if err != nil {
-		panic(err)
+		fmt.Errorf("Valid command line arguments not provided")
 	}
 	mean := mean(x, y)
 	fmt.Printf("mean=%v\n", mean)
